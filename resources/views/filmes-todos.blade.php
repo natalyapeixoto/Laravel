@@ -6,4 +6,6 @@
     <li>{{ $filme->titleComRating() }}
 
     @endforeach
+
+    {{ $filmes->links() }}
 </ul>   
