@@ -9,7 +9,8 @@ class FilmesController extends Controller {
     
     public function exibirTodos() {
         // $filmes = Filme::all();
-        $filmes = Filme::orderBy('title')->get();
+        // $filmes = Filme::orderBy('title', 'DESC')->get();
+        $filmes = Filme::where('title','like', 'A%')->get();
         return view('filmes-todos')
             ->with('filmes', $filmes);
     }
