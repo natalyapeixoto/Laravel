@@ -43,3 +43,11 @@ Route::get('/view-parametro/{nome}', function ($nome){
 
 Route::get('/filmes', 'FilmesController@exibirTodos');
 
+Route::get('/filmes/{id}', 'FilmesController@exibirDetalhe');
+
+Route::get('/filme/adicionar', 'FilmesController@adicionarFilme');
+Route::post('/filme/adicionar', 'FilmesController@salvarFilme');
+
+Route::get('filme/editar{id}', 'FilmesController@editarFilme');
+Route::post('filme/editar{id}', 'FilmesController@salvarFilmeEditado');
+
