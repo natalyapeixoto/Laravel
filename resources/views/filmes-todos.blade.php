@@ -25,6 +25,7 @@
                 </a>
 
                 <a class="btn-sm btn-dark ml-5" href='/filme/editar{{ $filme->id }}'>Editar</a>
+                <a class="btn-sm btn-danger ml-5" href='/filme/excluir{{ $filme->id }}'>Excluir</a>
              </li>
 
           @endforeach
@@ -37,3 +38,4 @@
 
 </body>
 </html>
+

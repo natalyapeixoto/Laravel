@@ -51,3 +51,4 @@ Route::post('/filme/adicionar', 'FilmesController@salvarFilme');
 Route::get('filme/editar{id}', 'FilmesController@editarFilme');
 Route::post('filme/editar{id}', 'FilmesController@salvarFilmeEditado');
 
+Route::get('filme/excluir{id}', 'FilmesController@excluirFilme');

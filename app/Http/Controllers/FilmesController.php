@@ -53,18 +53,27 @@ class FilmesController extends Controller {
     }
 
     public function salvarFilmeEditado(Request $request, $id) {
-        $filme = Filme::find($id);
         
         $request->validate([
-            'title' => 'required',
-            'rating' => 'required',
-        ]);
-
+            'title' => 'required|max:100',
+            'rating' => 'required|numeric|between:1,10',
+            ]);
+            
+        $filme = Filme::find($id);
         $filme->title = $request->input('title');
         $filme->rating = $request->input('rating');
         $filme->save();
         
         return redirect('/filmes');
     }
+
+    public function excluirFilme($id) {
+        $filme = Filme::find($id);
+        $filme->delete();
+        
+        return redirect('/filmes');
+    }
      
  }
+
+ //criar um MODEL  no terminal = php astisan make:model nome do model
