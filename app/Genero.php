@@ -9,7 +9,9 @@ class Genero extends Model {
     protected $table = 'genres';
     protected $primaryKey = 'id';
 
-    
+    public function relationGerenoFilmes() {
+        return $this->hasMany(Filme::class, 'genre_id', 'id');       
+    }
     
 }
 
