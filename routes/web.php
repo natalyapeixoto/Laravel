@@ -41,7 +41,7 @@ Route::get('/view-parametro/{nome}', function ($nome){
     return view('minhaSegunda')->with('nomeBlade', $nome);
 });
 
-Route::get('/filmes', 'FilmesController@exibirTodos');
+Route::get('/filmes', 'FilmesController@exibirTodos')->middleware(['auth', 'admin']);
 
 Route::get('/filmes/{id}', 'FilmesController@exibirDetalhe');
 
@@ -52,3 +52,9 @@ Route::get('filme/editar{id}', 'FilmesController@editarFilme');
 Route::post('filme/editar{id}', 'FilmesController@salvarFilmeEditado');
 
 Route::get('filme/excluir{id}', 'FilmesController@excluirFilme');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('/auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
